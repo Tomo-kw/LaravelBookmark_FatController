@@ -21,7 +21,6 @@ final class CreateBookmarkUseCase
         $this->linkPreview = $linkPreview;
     }
 
-
     /**
      * ブックマーク作成処理
      *
@@ -41,7 +40,6 @@ final class CreateBookmarkUseCase
     public function handle(string $url, int $category, string $comment)
     {
         try {
-//            $preview = (new LinkPreview())->get($url);
             $preview = $this->linkPreview->get($url);
 
             $model = new Bookmark();
