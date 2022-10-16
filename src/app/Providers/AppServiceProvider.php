@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Lib\LinkPreview\LinkPreview;
+use App\Lib\LinkPreview\LinkPreviewInterface;
+use App\Lib\LinkPreview\MockLinkPreview;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +16,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+//        $this->app->bind(LinkPreviewInterface::class, LinkPreview::class);
+        $this->app->bind(LinkPreviewInterface::class, MockLinkPreview::class);
     }
 
     /**

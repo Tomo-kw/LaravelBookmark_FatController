@@ -99,14 +99,14 @@ class BookmarkController extends Controller
 
 
     /**
-     * ブックマーク作成処理
      * @param CreateBookmarkRequest $request
+     * @param CreateBookmarkUseCase $useCase
      * @return Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      * @throws ValidationException
      */
-    public function create(CreateBookmarkRequest $request)
+    public function create(CreateBookmarkRequest $request, CreateBookmarkUseCase $useCase)
     {
-        $useCase = new CreateBookmarkUseCase(new MockLinkPreview());
+//        $useCase = new CreateBookmarkUseCase(new MockLinkPreview());
 //        $useCase = new CreateBookmarkUseCase(new LinkPreview());
         $useCase->handle($request->url, $request->category, $request->comment);
 
